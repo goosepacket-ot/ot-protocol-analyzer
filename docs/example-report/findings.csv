@@ -1,0 +1,7 @@
+severity,title,proto,source,target,count,example,advice
+high,MQTT CONNECT with username/password in clear text,MQTT,10.10.40.5,10.10.40.6,1,MQTT CONNECT,Use MQTT over TLS (8883) with per-client credentials or certificates.
+high,SNMP v1 with default community 'public',SNMP,10.10.10.30,10.10.1.2,1,SNMP v1,Move to SNMPv3 (authPriv) and remove default community strings.
+high,Telnet management (clear-text credentials),Telnet,10.10.10.10,10.10.1.2,1,Telnet session,Disable Telnet; use SSH for device management.
+medium,IEC 104 control command,IEC 60870-5-104,10.10.10.10,10.10.20.21,1,"I-frame C_SC_NA_1 single command, COT 6, CA 1",Permit commands only from the controlling station's IP; IEC 62351-3 (TLS) protects 104 on untrusted links.
+medium,Modbus write operation,Modbus/TCP,10.10.10.10,10.10.20.11,1,Write Multiple Registers (unit 1),Modbus has no authentication. Restrict which hosts may write with an industrial firewall / DPI rule (allow-list function codes per source) and log every write.
+low,EtherNet/IP ListIdentity (device discovery),EtherNet/IP,10.10.10.10,10.10.20.41,1,Encapsulation ListIdentity,Device discovery is normal from engineering tools; alert when it comes from an unexpected host.

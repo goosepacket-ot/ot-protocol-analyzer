@@ -1,0 +1,277 @@
+{
+  "source": "samples/demo-substation.pcap",
+  "summary": {
+    "packets": 36,
+    "duration_s": 0.7,
+    "assets": 8,
+    "flows": 6,
+    "findings": {
+      "high": 3,
+      "medium": 2,
+      "low": 1
+    },
+    "protocols": {
+      "Modbus/TCP": 25,
+      "IEC 60870-5-104": 5,
+      "EtherNet/IP": 2,
+      "LLDP": 1,
+      "Telnet": 1,
+      "SNMP": 1,
+      "MQTT": 1
+    }
+  },
+  "assets": [
+    {
+      "key": "10.10.1.2",
+      "ip": "10.10.1.2",
+      "mac": "00:80:63:01:00:02",
+      "vendor": "Hirschmann (Belden)",
+      "name": "SUB-A-SW01",
+      "roles": [
+        "LLDP-speaking network device",
+        "SNMP agent (network device)",
+        "Telnet server"
+      ],
+      "protocols": [
+        "SNMP",
+        "Telnet"
+      ],
+      "vlans": [],
+      "packets": 1
+    },
+    {
+      "key": "10.10.10.10",
+      "ip": "10.10.10.10",
+      "mac": "00:1b:1b:10:00:10",
+      "vendor": "Siemens",
+      "name": "",
+      "roles": [
+        "EtherNet/IP scanner / client",
+        "IEC 104 controlling station (SCADA)",
+        "Modbus client (master)",
+        "Telnet client"
+      ],
+      "protocols": [
+        "EtherNet/IP",
+        "IEC 60870-5-104",
+        "Modbus/TCP",
+        "Telnet"
+      ],
+      "vlans": [],
+      "packets": 19
+    },
+    {
+      "key": "10.10.10.30",
+      "ip": "10.10.10.30",
+      "mac": "00:1b:1b:10:00:30",
+      "vendor": "Siemens",
+      "name": "",
+      "roles": [
+        "SNMP manager (NMS)"
+      ],
+      "protocols": [
+        "SNMP"
+      ],
+      "vlans": [],
+      "packets": 1
+    },
+    {
+      "key": "10.10.20.11",
+      "ip": "10.10.20.11",
+      "mac": "00:80:f4:20:00:11",
+      "vendor": "Schneider Electric",
+      "name": "",
+      "roles": [
+        "Modbus server (PLC/RTU/device)"
+      ],
+      "protocols": [
+        "Modbus/TCP"
+      ],
+      "vlans": [],
+      "packets": 12
+    },
+    {
+      "key": "10.10.20.21",
+      "ip": "10.10.20.21",
+      "mac": "00:a0:45:20:00:21",
+      "vendor": "Phoenix Contact",
+      "name": "",
+      "roles": [
+        "IEC 104 controlled station (RTU/gateway)"
+      ],
+      "protocols": [
+        "IEC 60870-5-104"
+      ],
+      "vlans": [],
+      "packets": 2
+    },
+    {
+      "key": "10.10.20.41",
+      "ip": "10.10.20.41",
+      "mac": "",
+      "vendor": "Rockwell Automation",
+      "name": "",
+      "roles": [
+        "EtherNet/IP adapter (PLC / device)"
+      ],
+      "protocols": [
+        "EtherNet/IP"
+      ],
+      "vlans": [],
+      "packets": 0
+    },
+    {
+      "key": "10.10.40.5",
+      "ip": "10.10.40.5",
+      "mac": "00:1b:1b:40:00:05",
+      "vendor": "Siemens",
+      "name": "",
+      "roles": [
+        "MQTT client"
+      ],
+      "protocols": [
+        "MQTT"
+      ],
+      "vlans": [],
+      "packets": 1
+    },
+    {
+      "key": "10.10.40.6",
+      "ip": "10.10.40.6",
+      "mac": "02:00:00:40:00:06",
+      "vendor": "",
+      "name": "",
+      "roles": [
+        "MQTT broker"
+      ],
+      "protocols": [
+        "MQTT"
+      ],
+      "vlans": [],
+      "packets": 0
+    }
+  ],
+  "flows": [
+    {
+      "client": "10.10.10.10",
+      "server": "10.10.20.41",
+      "protocol": "EtherNet/IP",
+      "events": 2,
+      "operations": {
+        "discovery": 1,
+        "session": 1
+      }
+    },
+    {
+      "client": "10.10.10.10",
+      "server": "10.10.20.21",
+      "protocol": "IEC 60870-5-104",
+      "events": 5,
+      "operations": {
+        "session": 2,
+        "read": 1,
+        "data": 1,
+        "control": 1
+      }
+    },
+    {
+      "client": "10.10.40.5",
+      "server": "10.10.40.6",
+      "protocol": "MQTT",
+      "events": 1,
+      "operations": {
+        "session": 1
+      }
+    },
+    {
+      "client": "10.10.10.10",
+      "server": "10.10.20.11",
+      "protocol": "Modbus/TCP",
+      "events": 25,
+      "operations": {
+        "read": 24,
+        "write": 1
+      }
+    },
+    {
+      "client": "10.10.10.30",
+      "server": "10.10.1.2",
+      "protocol": "SNMP",
+      "events": 1,
+      "operations": {
+        "mgmt": 1
+      }
+    },
+    {
+      "client": "10.10.10.10",
+      "server": "10.10.1.2",
+      "protocol": "Telnet",
+      "events": 1,
+      "operations": {
+        "mgmt": 1
+      }
+    }
+  ],
+  "findings": [
+    {
+      "severity": "high",
+      "title": "MQTT CONNECT with username/password in clear text",
+      "proto": "MQTT",
+      "source": "10.10.40.5",
+      "target": "10.10.40.6",
+      "count": 1,
+      "example": "MQTT CONNECT",
+      "advice": "Use MQTT over TLS (8883) with per-client credentials or certificates."
+    },
+    {
+      "severity": "high",
+      "title": "SNMP v1 with default community 'public'",
+      "proto": "SNMP",
+      "source": "10.10.10.30",
+      "target": "10.10.1.2",
+      "count": 1,
+      "example": "SNMP v1",
+      "advice": "Move to SNMPv3 (authPriv) and remove default community strings."
+    },
+    {
+      "severity": "high",
+      "title": "Telnet management (clear-text credentials)",
+      "proto": "Telnet",
+      "source": "10.10.10.10",
+      "target": "10.10.1.2",
+      "count": 1,
+      "example": "Telnet session",
+      "advice": "Disable Telnet; use SSH for device management."
+    },
+    {
+      "severity": "medium",
+      "title": "IEC 104 control command",
+      "proto": "IEC 60870-5-104",
+      "source": "10.10.10.10",
+      "target": "10.10.20.21",
+      "count": 1,
+      "example": "I-frame C_SC_NA_1 single command, COT 6, CA 1",
+      "advice": "Permit commands only from the controlling station's IP; IEC 62351-3 (TLS) protects 104 on untrusted links."
+    },
+    {
+      "severity": "medium",
+      "title": "Modbus write operation",
+      "proto": "Modbus/TCP",
+      "source": "10.10.10.10",
+      "target": "10.10.20.11",
+      "count": 1,
+      "example": "Write Multiple Registers (unit 1)",
+      "advice": "Modbus has no authentication. Restrict which hosts may write with an industrial firewall / DPI rule (allow-list function codes per source) and log every write."
+    },
+    {
+      "severity": "low",
+      "title": "EtherNet/IP ListIdentity (device discovery)",
+      "proto": "EtherNet/IP",
+      "source": "10.10.10.10",
+      "target": "10.10.20.41",
+      "count": 1,
+      "example": "Encapsulation ListIdentity",
+      "advice": "Device discovery is normal from engineering tools; alert when it comes from an unexpected host."
+    }
+  ]
+}

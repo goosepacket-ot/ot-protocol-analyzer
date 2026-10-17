@@ -1,0 +1,7 @@
+client,server,protocol,events,operations
+10.10.10.10,10.10.20.41,EtherNet/IP,2,discovery=1; session=1
+10.10.10.10,10.10.20.21,IEC 60870-5-104,5,session=2; read=1; data=1; control=1
+10.10.40.5,10.10.40.6,MQTT,1,session=1
+10.10.10.10,10.10.20.11,Modbus/TCP,25,read=24; write=1
+10.10.10.30,10.10.1.2,SNMP,1,mgmt=1
+10.10.10.10,10.10.1.2,Telnet,1,mgmt=1

@@ -1,0 +1,9 @@
+ip,mac,vendor,name,roles,protocols,vlans,packets
+10.10.1.2,00:80:63:01:00:02,Hirschmann (Belden),SUB-A-SW01,LLDP-speaking network device; SNMP agent (network device); Telnet server,SNMP; Telnet,,1
+10.10.10.10,00:1b:1b:10:00:10,Siemens,,EtherNet/IP scanner / client; IEC 104 controlling station (SCADA); Modbus client (master); Telnet client,EtherNet/IP; IEC 60870-5-104; Modbus/TCP; Telnet,,19
+10.10.10.30,00:1b:1b:10:00:30,Siemens,,SNMP manager (NMS),SNMP,,1
+10.10.20.11,00:80:f4:20:00:11,Schneider Electric,,Modbus server (PLC/RTU/device),Modbus/TCP,,12
+10.10.20.21,00:a0:45:20:00:21,Phoenix Contact,,IEC 104 controlled station (RTU/gateway),IEC 60870-5-104,,2
+10.10.20.41,,Rockwell Automation,,EtherNet/IP adapter (PLC / device),EtherNet/IP,,0
+10.10.40.5,00:1b:1b:40:00:05,Siemens,,MQTT client,MQTT,,1
+10.10.40.6,02:00:00:40:00:06,,,MQTT broker,MQTT,,0
