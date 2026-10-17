@@ -22,7 +22,7 @@ reports: report/report.json, report/assets.csv, report/flows.csv, report/finding
 
 ## Why I built it
 
-I have spent 25+ years in industrial / OT networking, and the first question on every assessment is the same: *what is actually on this network, who is talking to the controllers, and what is still running in clear text?* Full monitoring platforms answer that, but on a short engagement you often just have a `.pcap` and a laptop. This is the tool I wanted for that moment — small enough to read in an afternoon, honest about its limits, and dependency-free so it runs anywhere.
+I have spent 5+ years in industrial / OT networking, and the first question on every assessment is the same: *what is actually on this network, who is talking to the controllers, and what is still running in clear text?* Full monitoring platforms answer that, but on a short engagement you often just have a `.pcap` and a laptop. This is the tool I wanted for that moment — small enough to read in an afternoon, honest about its limits, and dependency-free so it runs anywhere.
 
 ## Install
 
